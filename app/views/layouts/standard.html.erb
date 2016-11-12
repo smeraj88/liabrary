@@ -33,11 +33,11 @@
               			  <li role="presentation"  >
               			  <%= link_to s.title, :action => "show_subjects",:id=>s.id, class:"custom_links " %>
               			  </li>
+              			  
               		  <%end%>
-              		  
             			</ul>
             			<div class="navbar-right">
-            			    <div class="dropdown  ">
+            			    <div class="dropdown  "><%= current_user.email%>
             			    <button class="btn btn-secondary dropdown-toggle reg-btn" type="button"  data-toggle="dropdown" ariahaspopup="true" aria-expanded="false" >Register<span class="caret"></span></button>
                     			 <div class="dropdown-menu" >
                     			     <%if user_signed_in?%>
@@ -59,7 +59,6 @@
              
          <div class="well custom_footer" >
                   Copyright&nbsp;&copy;&nbsp; &nbsp;
-                                     <%= current_user.email%>
                
              </div>
              

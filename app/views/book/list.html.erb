@@ -28,8 +28,8 @@
 </tbody>
 </table>
 <% end %>
-
+<%if can? :create,@book%>
 <p><%= link_to "Add New Book", {:action => 'new' }%></p>
-
+<%end%>
 <%= will_paginate @books , previous_label:"prev" , next_label:"next",:inner_window=>2,:outer_window=>2 %>
 
