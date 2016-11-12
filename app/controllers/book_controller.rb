@@ -16,7 +16,9 @@ class BookController < ApplicationController
         @book = Book.new(book_params)
 	
         if @book.save
+            
           redirect_to :action => 'list'
+          flash[:notice]="#{@book.title} Book Successfuly Added."
         else
           @subjects = Subject.all
          render :action => 'new'
@@ -54,6 +56,7 @@ class BookController < ApplicationController
    @book = Book.find(params[:id])
 	
    if @book.update_attributes(book_param)
+       flash[:notice]="#{@book.title} Book Updated."
       redirect_to :action => 'show', :id => @book
    else
       @subjects = Subject.all
@@ -67,8 +70,10 @@ class BookController < ApplicationController
     end
     
     def delete
-       
+    flash[:notice]=" Book Deleted."
+
        Book.find(params[:id]).destroy
+
        redirect_to :action => 'list'
         
     end 

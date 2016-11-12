@@ -1,9 +1,13 @@
 <% if @books.blank? %>
 <p>Sorry,Books Are Not Available.</p>
 <% else %>
+ <div class="notice"><%=flash[:notice]%></div>
+
 <p>Available Books:</p>
 
- <table class="table table-hover table-condensed">
+
+
+<table class="table table-hover table-condensed">
   
      <thead>
        <tr>
