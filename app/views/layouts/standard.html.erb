@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+
+    
+  </head>
+  <body>
+   
+   
+     <div class="container">
+              <nav class="navbar navbar-default navbar-fixed-top custom_menu ">
+               <div class="navbar-header ">
+        		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Books Library</a>
+              </div>
+        	
+	
+            	<div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
+                		<ul class="nav navbar-nav custom_links ">
+            	  	   <% Subject.all.each do |s|%>
+              			  <li role="presentation"  >
+              			  <%= link_to s.title, :action => "show_subjects",:id=>s.id, class:"custom_links " %>
+              			  </li>
+              		  <%end%>
+              		  
+            			</ul>
+            			<div class="navbar-right">
+            			    <div class="dropdown  ">
+            			    <button class="btn btn-secondary dropdown-toggle reg-btn" type="button"  data-toggle="dropdown" ariahaspopup="true" aria-expanded="false" >Register<span class="caret"></span></button>
+                    			 <div class="dropdown-menu" >
+                    			     <%if user_signed_in?%>
+                    			      <%= link_to "Sign Out",destroy_user_session_path,class:"custom_links",:method => :delete %><br>
+                    			     <%else%>
+                    			     <%= link_to "Sign Up",new_user_registration_path,class:"custom_links"%><br>
+                    			     <%end%> 
+                    			 </div>   
+            		    	</div>
+                        </div>
+                        
+
+          </nav>
+
+
+              <div class="jumbotron custom_jumbotron">
+                  <%= yield %>
+                </div>
+             
+         <div class="well custom_footer" >
+                  Copyright&nbsp;&copy;&nbsp; &nbsp;
+                                     <%= current_user.email%>
+               
+             </div>
+             
+       </div>
+
+  
+    </body>
+  
+</html>
