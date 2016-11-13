@@ -31,13 +31,10 @@
                             <div class="field">
                               <%= f.password_field :password_confirmation,autocomplete:"off",class:'form-control',placeholder:'confirm password'%>
                             </div><br>
-                        <div class="field">
-                         <%= f.collection_select :role,User::ROLES,:to_s,:humanize,class:'form-control' %>
-                              
-                         </div><br>
+                        
                      
                       <div class="actions">
-                        <%= f.submit "Sign Up" ,class:'form-control',class:'btn btn-primary'%>
+                        <%= f.submit "Sign Up" ,class:'form-control',class:'btn btn-success'%>
                       </div><br>
                       
                     <% end %>

@@ -5,13 +5,14 @@ Rails.application.routes.draw do
    get 'book/new' 
    post 'book/create'
       get 'book/edit'
-   patch '/book/update'
+   post '/book/update'
    get 'book/show' 
    get 'book/delete' 
    get 'book/show_subjects'
      
   match '/book' => 'book#create', :via => :post
-  match '/book' => 'book#update', :via => :patch
+    match '/book/update/:id' ,:to => 'book#update', :via => :post
  match 'users/sign_out' => "devise/sessions#destroy",:via => :delete  
+ 
      resources :book
 end

@@ -37,8 +37,8 @@
               		  <%end%>
             			</ul>
             			<div class="navbar-right">
-            			    <div class="dropdown  "><%= current_user.email%>
-            			    <button class="btn btn-secondary dropdown-toggle reg-btn" type="button"  data-toggle="dropdown" ariahaspopup="true" aria-expanded="false" >Register<span class="caret"></span></button>
+            			    <div class="dropdown  ">
+            			    <button class="btn btn-secondary dropdown-toggle reg-btn" type="button"  data-toggle="dropdown" ariahaspopup="true" aria-expanded="false" ><%= current_user.email%><span class="caret"></span></button>
                     			 <div class="dropdown-menu" >
                     			     <%if user_signed_in?%>
                     			      <%= link_to "Sign Out",destroy_user_session_path,class:"custom_links",:method => :delete %><br>
