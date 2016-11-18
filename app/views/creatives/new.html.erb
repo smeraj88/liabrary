@@ -1,0 +1,10 @@
+
+<h1>Add New Book</h1>
+<%= simple_form_for @book,url:{:action=>'create'},method:'post' do |b|%>
+    <%=b.input :title,placeholder:'Title',label:false%>
+    <%=b.input :price,placeholder:'price',label:false%>
+    <%=b.association :subject,collection: @subjects,prompt:'select subject',label:false%>
+    <%=b.input :description,placeholder:'describe book here...',label:false%>
+    <%=b.submit :submit%>
+<%end%>
+<%= link_to 'Back', {:action => 'list'} %>

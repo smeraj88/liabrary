@@ -3,14 +3,14 @@ class Subjects < ActiveRecord::Migration[5.0]
  def self.up
       
       create_table :subjects do |t|
-         t.column :title, :string
+         t.column :name, :string
       end
 	
-      Subject.create :title => "Physics"
-      Subject.create :title => "Mathematics"
-      Subject.create :title => "Chemistry"
-      Subject.create :title => "Psychology"
-      Subject.create :title => "Geography"
+      Subject.create :name => "Physics"
+      Subject.create :name => "Mathematics"
+      Subject.create :name => "Chemistry"
+      Subject.create :name => "Psychology"
+      Subject.create :name => "Geography"
    
 
    def self.down

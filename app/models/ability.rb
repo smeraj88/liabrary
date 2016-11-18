@@ -3,14 +3,17 @@ class Ability
 
   def initialize(user)
     
-      # user ||= User.new # guest user (not logged in)
+      user ||= User.new # guest user (not logged in)
       #alias_action :create, :read, :update, :delete, :to => :crud
       if user.role =="admin" 
          can :manage,@book
-         can :manage,@subject
-       else
+         
+       elsif user.role == "Author"
         can :read, @book
-        can :read,@subject
+        
+       else
+        can :read,@book
+        
        end
     
     # The first argument to `can` is the action you are giving the user 

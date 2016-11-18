@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stud_name: 
+  year: MyString
+  book_name: MyString
+  book_count: 1
+
+two:
+  stud_name: 
+  year: MyString
+  book_name: MyString
+  book_count: 1

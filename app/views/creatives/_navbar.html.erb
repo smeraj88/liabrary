@@ -1,0 +1,71 @@
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">Books Library</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href"#"><%=current_user.email%></a></li>
+                <li>
+                    <a class="page-scroll" href="#about">Students</a>
+                    
+                </li>
+                <li>
+                    <a class="page-scroll" href="#services">New Arivals</a>
+                </li>
+              
+                <li class="dropdown">
+                    
+                    <a class=" dropdown-toggel "  data-toggle="dropdown" id="dropdown-menu1" ariahaspopup="true" aria-expanded="false"  href="#">Subjects<span class=" caret"></span></a>
+                    <ul class="dropdown-menu" arialabelledby="dropdown-menu1">
+                        <%Subject.all.each do |b|%>
+                        <li> <%= link_to b.name, {:action => "show_subjects",:id=>b.id}, class:"custom_links " %></li>
+                        <%end%>
+                    </ul>
+                  
+                </li>
+                
+                <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                    
+                </li>
+                
+                 <%if can? :list,@book%>
+                <li>
+                   
+                 <%= link_to "Admin Operations",{:action=>"list"}%>
+                 
+                 </li>
+                <%end%>
+                
+                 
+                <li>
+               <%= link_to "Student Details",{:action=>"fy_student_index"}%>
+                 </li>
+                
+                
+                
+                 <li class="dropdown">
+                    
+                    <a class=" dropdown-toggel "  data-toggle="dropdown" id="dropdown-log" ariahaspopup="true" aria-expanded="false"  href="#">Account<span class="glyphicon glyphicon-log-out"></a>
+                    <ul class="dropdown-menu" arialabelledby="dropdown-log">
+                         <li> <%= link_to "Sign Out",destroy_user_session_path,class:"",:method => :delete %></li>
+
+                    </ul>
+                  
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

@@ -1,0 +1,16 @@
+<div class="container" style="margin:20px;">
+<h1 class="text-center">Update Student</h1>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+<%= simple_form_for @fy_student ,:url=>{ :action =>'update_fy_student',:id => @fy_student} , :method => 'post' do |fy| %>
+    <%=fy.input :stud_name,placeholder:"student name",label:false,input_html:{maxlength:20}%>
+    <%=fy.input :year,placeholder:"year",label:false%>
+    <%=fy.input :book_name,placeholder:"book name",label:false,input_html:{maxlength:30}%>
+    <%=fy.input :book_count,placeholder:"book_count" ,label:false%>
+    <%=fy.submit :submit,:value=>"Update Student",class:"btn btn-success col-md-offset-6"%>
+<%end%>
+<%= link_to 'Back', :action => 'index' %><br>
+
+</div>
+</div>
+</div>

@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Books Library</a>
+              <a class="navbar-brand" href="/book/list.html">Books Library</a>
               </div>
         	
 	
@@ -31,7 +31,7 @@
                 		<ul class="nav navbar-nav custom_links ">
             	  	   <% Subject.all.each do |s|%>
               			  <li role="presentation"  >
-              			  <%= link_to s.title, :action => "show_subjects",:id=>s.id, class:"custom_links " %>
+              			  <%= link_to s.name, :action => "show_subjects",:id=>s.id, class:"custom_links " %>
               			  </li>
               			  
               		  <%end%>
