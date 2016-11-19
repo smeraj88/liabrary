@@ -4,5 +4,6 @@
  *= require creative/animate.min.css
  *= require creative/creative.css
  *= require_self
+ *= require_tree .
 */
 
