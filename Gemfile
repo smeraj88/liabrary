@@ -68,6 +68,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 
 gem "less-rails" 
-#gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails"
 
   gem 'bootstrap-sass', '~> 3.3.6'
