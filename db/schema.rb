@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117063545) do
+ActiveRecord::Schema.define(version: 20161119043811) do
 
   create_table "books", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",       limit: 32,    null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20161117063545) do
     t.integer  "subject_id"
     t.text     "description", limit: 65535
     t.datetime "created_at"
+    t.integer  "book_count"
   end
 
   create_table "first_year_students", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

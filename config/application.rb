@@ -12,5 +12,6 @@ module Library
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.web_console.whiny_requests = false
+     config.web_console.development_only = false
   end
 end

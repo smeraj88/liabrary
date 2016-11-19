@@ -1,6 +1,7 @@
 
 <div class="jumbotron">
-    <%@fy_students.each do |fy|%>
+     <div class="notice"><%=flash[:notice]%></div>
+    <h1 class="text-center">Book Issued Student Details</h1>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -13,6 +14,8 @@
             </tr>
         </thead>
         <tbody>
+                <%@fy_students.all.each do |fy|%>
+
             <tr>
                 <td><%=fy.id%></td>
                 <td><%=fy.stud_name%></td>
@@ -20,12 +23,14 @@
                 <td><%=fy.book_name%></td>
                 <td><%=fy.book_count%></td>
                 <td><%=fy.created_at%></td>
-                <td><%=link_to "Edit",:action=>"update_fy_student",:id=>fy.id%></td>
+                <td><%=link_to "Edit",:action=>"edit_fy_student",:id=>fy.id%></td>
                 <td><%=link_to "Delete",:action=>"delete_fy_student",:id=>fy.id%></td>
             </tr>
+                <%end%>
+
         </tbody>
     </table>
-    <%end%>
-    <%=link_to "Add Student",:action => "new_fy_student"%><br>    
-    <%=link_to "Back",:action=>"index"%>
+    <%=link_to "Add Student",:action => "new_fy_student"%><br><br>
+    <%=link_to "Back",:action=>"index"%><br>
+    <%= will_paginate @fy_students,previous_label:"Prev",next_label:"Next",inner_window:2,outer_window:2%>
 </div>    

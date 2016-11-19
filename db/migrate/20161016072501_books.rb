@@ -6,7 +6,6 @@ class Books < ActiveRecord::Migration[5.0]
          t.column :price, :float
          t.column :subject_id, :integer
          t.column :description, :text
-         t.column :book_counts, :integer
          t.column :created_at, :timestamp
       end
    end

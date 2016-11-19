@@ -105,13 +105,34 @@ layout "creative"
     
     def create_fy_student
        @fy_student = FirstYearStudent.new(fy_student_params) 
-       if @fy_student.save
+       book_name = @fy_student.book_name
+       @book = Book.find_by :title=>book_name # use where to store in array 
+       @book_count = @book.book_count 
+       @book.book_count = @book_count + 1
+       @book.save
+     
+     if @fy_student.save
+           
+        Book.all.each do |b|
+            
+           if b.title == book_name 
+                   #flash[:notice] = "#{book_name}"
+        
+                   count = b.book_count 
+                  #flash[:notice] = "#{count}"
+                  b.book_count = count - 1
+                  b.save
+                  #flash[:notice] = "count added"
+            end       
+        end
+       
+           
            redirect_to :action=>'fy_student_index'
            flash[:notice] = "Student Added):"
        else
           redirect_to :action=>'new_fy_student' 
           flash[:alert]="Student Does Not Created!!!"
-       end
+     end
     end
     
     def edit_fy_student
@@ -119,11 +140,11 @@ layout "creative"
     end
 
     def update_fy_student
-     @fy_student = FirstYearStudent.find(params[:id]) 
+       @fy_student = FirstYearStudent.find(params[:id]) 
        if @fy_student.update_attributes(fy_student_param)
            flash[:notice] = "#{@fy_student.stud_name } Upadted."
            redirect_to :action=>'fy_student_index'
-        elsif 
+        else
            flash[:alert] = " #{@fy_student.stud_name }does not Upadted."   
            redirect_to :action=>'fy_student_index'
 
@@ -131,10 +152,25 @@ layout "creative"
     end
     
     def delete_fy_student
-    
-       @fy_student = FirstYearStudent.find(params[:id]).destroy
-       flash[:notice] = "Student data deleted."
-       redirect_to :action=>"fy_student_index"
+       
+       @fy_student = FirstYearStudent.find(params[:id])
+       book_name = @fy_student.book_name
+       @book = Book.where(title:book_name)
+       
+       book_count = b.book_count 
+       @book.book_count = @book_count + 1
+       @book.save
+       
+       if @fy_student.destroy
+       
+                         flash[:notice] = "Book count is:#{@book_count}"
+                         redirect_to :action=>"fy_student_index"  
+            
+        end
+       
+     
+       #flash[:notice] = "Student data deleted."
+       
     end
     
     def fy_student_params
