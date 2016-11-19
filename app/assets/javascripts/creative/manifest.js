@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-sprockets
 //= require creative/cbpAnimatedHeader
 //= require creative/classie
 //= require creative/jquery.easing.min
@@ -9,4 +10,3 @@
 //= require creative/creative
 //= require_self
 //= require_tree .
-
