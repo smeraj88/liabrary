@@ -1,5 +1,5 @@
 class CreativesController < ApplicationController
-before_action :authenticate_user! 
+    before_action :authenticate_user! 
 
     layout "creative"
 
@@ -149,6 +149,7 @@ before_action :authenticate_user!
     def fy_student_param
         params.require(:first_year_student).permit(:stud_name,:year,:book_name,:book_count)
     end
+    
     
     
 end
