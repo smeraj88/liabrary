@@ -1,12 +1,11 @@
 class CreativesController < ApplicationController
-before_action :authenticate_user! 
+    before_action :authenticate_user! 
 
-layout "creative"
+    layout "creative"
 
-#book and subject details action
   def index
-    #@subject = Subject.all
-    #@book = Book.all
+    @subject = Subject.all
+    @book = Book.all
   end
   
   
@@ -92,8 +91,7 @@ layout "creative"
     end
     
   
-  #student deatils actions
-  
+
   def fy_student_index
       @fy_students = FirstYearStudent.paginate(:page=>params[:page],:per_page=>5)
     end      
@@ -105,28 +103,8 @@ layout "creative"
     
     def create_fy_student
        @fy_student = FirstYearStudent.new(fy_student_params) 
-       book_name = @fy_student.book_name
-       @book = Book.find_by :title=>book_name # use where to store in array 
-       @book_count = @book.book_count 
-       @book.book_count = @book_count + 1
-       @book.save
-     
-     if @fy_student.save
-           
-        Book.all.each do |b|
-            
-           if b.title == book_name 
-                   #flash[:notice] = "#{book_name}"
-        
-                   count = b.book_count 
-                  #flash[:notice] = "#{count}"
-                  b.book_count = count - 1
-                  b.save
-                  #flash[:notice] = "count added"
-            end       
-        end
        
-           
+     if @fy_student.save
            redirect_to :action=>'fy_student_index'
            flash[:notice] = "Student Added):"
        else
@@ -154,22 +132,12 @@ layout "creative"
     def delete_fy_student
        
        @fy_student = FirstYearStudent.find(params[:id])
-       book_name = @fy_student.book_name
-       @book = Book.where(title:book_name)
-       
-       book_count = b.book_count 
-       @book.book_count = @book_count + 1
-       @book.save
-       
+      
        if @fy_student.destroy
        
-                         flash[:notice] = "Book count is:#{@book_count}"
-                         redirect_to :action=>"fy_student_index"  
-            
+        redirect_to :action=>"fy_student_index"  
+        flash[:notice] = "Student data deleted."    
         end
-       
-     
-       #flash[:notice] = "Student data deleted."
        
     end
     

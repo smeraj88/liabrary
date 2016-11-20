@@ -1,4 +1,4 @@
-<div class="container" style="margin:20px;">
+<div class="container inside_pages_container" >
 <h1 class="text-center">Add Student</h1>
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
@@ -9,7 +9,7 @@
     <%=fy.input :book_count,placeholder:"book_count" ,label:false%>
     <%=fy.submit :submit,:value=>"Add Student",class:"btn btn-success col-md-offset-6"%>
 <%end%>
-<%= link_to 'Back',:action => 'index' ,:class=>"btn btn-primary"%><br>
+<%= link_to 'Back',:action => 'fy_student_index' ,:class=>"btn btn-primary"%><br>
 
 </div>
 </div>

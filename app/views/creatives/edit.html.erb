@@ -1,3 +1,4 @@
+<div class="container inside_pages_container" >
 <h1>Edit Book Detail</h1>
 
 <%= simple_form_for @book, :url =>{:action => "update", :id =>@book} ,:method => 'post'  do |b| %>
@@ -8,3 +9,4 @@
     <%=b.submit :submit%>
 <%end%>
 <%= link_to 'Back', {:action => 'list'} ,:class=>"btn btn-primary"%>
+</div>

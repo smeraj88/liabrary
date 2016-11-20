@@ -1,8 +1,7 @@
-
-<div class="jumbotron">
+<div class="container inside_pages_container" >
      <div class="notice"><%=flash[:notice]%></div>
-    <h1 class="text-center">Book Issued Student Details</h1>
-    <table class="table table-hover">
+    <table class="table table-hover table-bordered table-responsive table-condensed">
+           <caption>Book Issued Details</caption>
         <thead>
             <tr>
                 <td>Id</td>
@@ -30,7 +29,7 @@
 
         </tbody>
     </table>
-    <%=link_to "Add Student",:action => "new_fy_student"%><br><br>
+    <%=link_to "Add Student",:action => "new_fy_student",class:"btn btn-primary"%><br><br>
     <%=link_to "Back",:action=>"index"%><br>
     <%= will_paginate @fy_students,previous_label:"Prev",next_label:"Next",inner_window:2,outer_window:2%>
 </div>    

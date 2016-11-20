@@ -70,4 +70,4 @@ gem 'coffee-rails', '~> 4.2'
 gem "less-rails" 
 gem "twitter-bootstrap-rails"
 
-  gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.3.6'
