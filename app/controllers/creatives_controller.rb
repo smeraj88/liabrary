@@ -6,6 +6,7 @@ class CreativesController < ApplicationController
   def index
     @subject = Subject.all
     @book = Book.all
+    @first_year_student = FirstYearStudent.all
   end
   
   

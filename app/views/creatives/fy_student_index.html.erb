@@ -10,6 +10,9 @@
                 <td>Book Name</td>
                 <td>Book Count</td>
                 <td>Issue Date</td>
+                <%if can? :update,FirstYearStudent%>
+                <td>Operations</td>
+                <%end%>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +25,12 @@
                 <td><%=fy.book_name%></td>
                 <td><%=fy.book_count%></td>
                 <td><%=fy.created_at%></td>
+                <%if can? :update,FirstYearStudent%>
                 <td><%=link_to "Edit",:action=>"edit_fy_student",:id=>fy.id%></td>
+                <%end%>
+                <%if can? :destroy,FirstYearStudent %>
                 <td><%=link_to "Delete",:action=>"delete_fy_student",:id=>fy.id%></td>
+                <%end%>
             </tr>
                 <%end%>
 

@@ -23,6 +23,13 @@
                     <a class="page-scroll" href="#services">New Arivals</a>
                 </li>
               
+                
+                <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                    
+                </li>
+              
+              
                 <li class="dropdown">
                     
                     <a class=" dropdown-toggel "  data-toggle="dropdown" id="dropdown-menu1" ariahaspopup="true" aria-expanded="false"  href="#">Subjects<span class=" caret"></span></a>
@@ -34,12 +41,7 @@
                   
                 </li>
                 
-                <li>
-                    <a class="page-scroll" href="#contact">Contact</a>
-                    
-                </li>
-                
-                 <%if can? :list,@book%>
+                 <%if can? :list,Book%>
                 <li>
                    
                  <%= link_to "Admin Operations",{:action=>"list"}%>
@@ -47,7 +49,7 @@
                  </li>
                 <%end%>
                 
-                 <%if can? :fy_student_index,@first_year_student%>
+                 <%if can? :fy_student_index,FirstYearStudent%>
                 <li>
                <%= link_to "Student Details",{:action=>"fy_student_index"}%>
                  </li>

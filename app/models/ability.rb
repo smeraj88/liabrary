@@ -5,14 +5,14 @@ class Ability
     
       user ||= User.new # guest user (not logged in)
       #alias_action :create, :read, :update, :delete, :to => :crud
-      if user.role =="admin" 
-         can :manage,@book
+      if user.role =="Admin" 
+         can :manage,:all
          
        elsif user.role == "Author"
-        can :read, @book
+        can :read,:all
         
        else
-        can :read,@book
+        can :read,:all
         
        end
     
