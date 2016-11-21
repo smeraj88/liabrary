@@ -1,4 +1,4 @@
-<div class="container inside_pages_container" >
+<div class="container inside_pages_container" style="max-width:90%; padding:20px;">
 <% if @books.blank? %>
 <p>Sorry,Books Are Not Available.</p>
 <% else %>
@@ -21,6 +21,7 @@
          <%if can? :destroy,@book%>
            <th>Delete</th>
            <%end%>
+           <th>Issue Book</th>
         </tr>   
     </thead>
     <tbody>
@@ -33,8 +34,9 @@
    <%end%>
    <%if can? :destroy,@book%>
    <td><b> <%= link_to "Delete", {:action => 'delete', :id => b.id},
-      :confirm => "Are you sure you want to delete this item?" %></b></td></tr>
+      :confirm => "Are you sure you want to delete this item?" %></b></td>
      <%end%>
+     <td><b><%= link_to "Issue Book",{:action => 'issue_book' , :id => b.id}%></b></td></tr>
     <%end%>
 </tbody>
 </table>

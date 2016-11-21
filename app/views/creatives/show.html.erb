@@ -1,14 +1,14 @@
-<div class="container inside_pages_container" >
+<div class="container inside_pages_container" style="padding:20px;">
 <h1><%= @book.title %></h1>
 
 <p>
-   <strong>Price: </strong>&#8377;&nbsp;<%= @book.price %><br />
-   <strong>Subject :</strong> <%= @book.subject.name %><br />
-   <strong>Created Date:</strong> <%= @book.created_at %><br />
-</p>
-<p><%= @book.description %></p>
+   <strong>Price : </strong>&#8377;&nbsp;<%= @book.price %><br>
+   <strong>Subject : </strong> <%= @book.subject.name %><br>
+   <strong>Book Count : </strong><%= @book.book_count%><br>
+   <strong>Created Date : </strong> <%=@book.created_at.strftime("%F\t%T")%><br>
+   <strong>Book Description : </strong><%= @book.description %></p>
 
 <hr />
 
-<%= link_to 'Back', {:action => 'index'},:class=>"btn btn-primary" %>
+<%= link_to 'Back', {:action => 'list'},:class=>"btn btn-primary" %>
 </div>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
    get 'creatives/show_subjects/:id'=>'creatives#show_subjects'
    post 'creatives/update/:id' => 'creatives#update'
    get 'creatives/fy_student_index'=>'creatives#fy_student_index'
-   get  'creatives/new_fy_student' => 'creatives#new_fy_student'
+   get  'creatives/issue_book' => 'creatives#issue_book'
    post 'creatives/create_fy_student' => 'creatives#create_fy_student'
    get 'creatives/delete_fy_student/:id' => 'creatives#delete_fy_student'
    
@@ -21,4 +21,5 @@ Rails.application.routes.draw do
    resources :creatives
    devise_for :users
    
+
 end

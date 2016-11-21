@@ -9,7 +9,7 @@ class Ability
          can :manage,:all
          
        elsif user.role == "Author"
-        can :read,:all
+        can :manage,:all
         
        else
         can :read,:all

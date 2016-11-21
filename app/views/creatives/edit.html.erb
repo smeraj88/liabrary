@@ -1,12 +1,15 @@
-<div class="container inside_pages_container" >
-<h1>Edit Book Detail</h1>
+<div class="container inside_pages_container" style="padding:20px;">
+<h2 class="text-center">Edit Book Detail</h2>
 
 <%= simple_form_for @book, :url =>{:action => "update", :id =>@book} ,:method => 'post'  do |b| %>
     <%=b.input :title,placeholder:'Title',label:false%>
+    <%=b.input :book_count,placeholder:"book count",label:false %>
     <%=b.input :price,placeholder:'price',label:false%>
     <%=b.association :subject,collection: @subjects,prompt:'select subject',label:false%>
     <%=b.input :description,placeholder:'describe book here...',label:false%>
-    <%=b.submit :submit%>
+    <div class="text-center">
+    <%=b.submit "Update"%>
+    </div>
 <%end%>
 <%= link_to 'Back', {:action => 'list'} ,:class=>"btn btn-primary"%>
 </div>
